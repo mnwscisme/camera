@@ -1,58 +1,41 @@
-# version:1.0.1905.9051
-import gxipy as gx
+#-------------------------------------#
+#       调用摄像头检测
+#-------------------------------------#
+from yolo import YOLO
 from PIL import Image
-import numpy
+import numpy as np
 import cv2
+import time
+import tensorflow as tf
 
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
-def main():
-	# 打开设备
-	# 枚举设备
-	device_manager = gx.DeviceManager() 
-	dev_num, dev_info_list = device_manager.update_device_list()
-	if dev_num == 0:
-		sys.exit(1)
-	# 获取设备基本信息列表
-	str_sn = dev_info_list[0].get("sn")
-	# 通过序列号打开设备
-	cam = device_manager.open_device_by_sn(str_sn)
-	# 导入配置信息
-	# cam.import_config_file("./import_config_file.txt")
-	# 开始采集
-	cam.stream_on()
-	
-	# 帧率
-	fps = cam.AcquisitionFrameRate.get()  
-	# 视频的宽高
-	size = (int(cam.Width.get()),int(cam.Height.get()))
+yolo = YOLO()
+# 调用摄像头
+capture=cv2.VideoCapture(0) # capture=cv2.VideoCapture("1.mp4")
+fps = 0.0
+while(True):
+    t1 = time.time()
+    # 读取某一帧
+    ref,frame=capture.read()
+    # 格式转变，BGRtoRGB
+    frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
+    # 转变成Image
+    frame = Image.fromarray(np.uint8(frame))
 
-	fourcc = cv2.VideoWriter_fourcc(*'XVID')
-	out = cv2.VideoWriter('2.avi',fourcc,fps,size)
-	#cv2.namedWindow('origin', flags = cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO | cv2.WINDOW_GUI_EXPANDED)
+    # 进行检测
+    frame = np.array(yolo.detect_image(frame))
 
-	while (1):
-                cap = cam.data_stream[0].get_image()
-		cap = cap.convert("RGB")
-		frame = cap.get_numpy_array()
-		frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
-		
-		if cap is None:
-			continue
-		#frame = cv2.flip(frame,1)		
-		out.write(frame)
-		cv2.imshow('origin', frame)
-
-		if cv2.waitKey(1) == ord('q'):
-			break
-	cv2.destroyWindow('origin')
-	
-	# 停止采集
-	cam.stream_off()
-  #释放
-	out.release()
-	# close device
-	cam.close_device()
-	cv2.destroyAllWindows()  
-
-if __name__ == "__main__":
-    main()
+    # RGBtoBGR满足opencv显示格式
+    frame = cv2.cvtColor(frame,cv2.COLOR_RGB2BGR)
+    
+    fps  = ( fps + (1./(time.time()-t1)) ) / 2
+    print("fps= %.2f"%(fps))
+    frame = cv2.putText(frame, "fps= %.2f"%(fps), (0, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    
+    cv2.imshow("video",frame)
+    c= cv2.waitKey(30) & 0xff 
+    if c==27:
+        capture.release()
+        break
