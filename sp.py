@@ -64,6 +64,7 @@ else:
 cam.stream_on()
 fps = cam.AcquisitionFrameRate.get()
 
+#根据时间命名文件，防止重命名，导致文件覆盖
 def getNameDate(nameIn="output.avi"):
 	if not nameIn.endswith(".avi"):
 		raise 	ValueError("filename must end on .avi")
