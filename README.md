@@ -55,7 +55,7 @@ camera\
 
 ![成功图一](./succeed1.png)
 
-![成功图二](https://github.com/mnwscisme/camera/blob/main/succeed2.png)
+![成功图二](./succeed2.png)
 
 ## 3.安装相机gxipy库
  ----------
