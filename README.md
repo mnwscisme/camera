@@ -394,20 +394,20 @@ cam.Height.set(500)
 |  • 可以用该函数替换掉“frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB) ”		|
 | ---------------------------------------------------------------------------	|
 | def whiteBalance(img):							|
-|	r,g,b = cv2.split(img)							|
-|	r_avg = cv2.mean(r)[0]							|
-|	g_avg = cv2.mean(g)[0]							|
-|	b_avg = cv2.mean(b)[0]							|
-|	k = (r_avg + g_avg + b_avg)/3						|
-|	kr = k / r_avg								|
-|	kg = k / g_avg								|
-|	kb = k / b_avg								|
-|	r = cv2.addWeighted(src1 = r,alpha = kr,src2 = 0,beta = 0, gamma = 0)	|
-|	g = cv2.addWeighted(src1 = g,alpha = kg,src2 = 0,beta = 0, gamma = 0)	|
-|	b = cv2.addWeighted(src1 = b,alpha = kb,src2 = 0,beta = 0, gamma = 0)	|
-|	balance_img = cv2.merge([b,g,r])					|
+|       r,g,b = cv2.split(img)							|
+|       r_avg = cv2.mean(r)[0]							|
+|       g_avg = cv2.mean(g)[0]							|
+|       b_avg = cv2.mean(b)[0]							|
+|       k = (r_avg + g_avg + b_avg)/3						|
+|       kr = k / r_avg								|
+|       kg = k / g_avg								|
+|       kb = k / b_avg								|
+|       r = cv2.addWeighted(src1 = r,alpha = kr,src2 = 0,beta = 0, gamma = 0)	|
+|       g = cv2.addWeighted(src1 = g,alpha = kg,src2 = 0,beta = 0, gamma = 0)	|
+|       b = cv2.addWeighted(src1 = b,alpha = kb,src2 = 0,beta = 0, gamma = 0)	|
+|       balance_img = cv2.merge([b,g,r])					|
 |										|
-|	return balance_img							|
+|       return balance_img							|
 
 
 
