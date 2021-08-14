@@ -35,7 +35,7 @@ camera\
 
 ```
 
-大恒官网（https://www.daheng-imaging.com/details/index.aspx?nodeid=297）下载下图两个软件至jetson nano，并解压
+![大恒官网]（https://www.daheng-imaging.com/details/index.aspx?nodeid=297）下载下图两个软件至jetson nano，并解压
 ```
 
 !./download.png
