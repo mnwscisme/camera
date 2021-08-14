@@ -53,7 +53,7 @@ camera\
 安装完成则产生以下文件：
 ```
 
-![成功图一](https://github.com/mnwscisme/camera/blob/main/succeed1.png)
+![成功图一](./succeed1.png)
 
 ![成功图二](https://github.com/mnwscisme/camera/blob/main/succeed2.png)
 
