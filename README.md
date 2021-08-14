@@ -39,7 +39,7 @@ camera\
 下载下图两个软件至jetson nano，并解压
 
 
-![](https://github.com/mnwscisme/camera/blob/main/download.png)
+![软件](https://github.com/mnwscisme/camera/blob/main/download.png)
 
 
  ## 2.安装相机驱动
@@ -53,9 +53,9 @@ camera\
 安装完成则产生以下文件：
 ```
 
-![](https://github.com/mnwscisme/camera/blob/main/succeed1.png)
+![成功图一](https://github.com/mnwscisme/camera/blob/main/succeed1.png)
 
-![](https://github.com/mnwscisme/camera/blob/main/succeed2.png)
+![成功图二](https://github.com/mnwscisme/camera/blob/main/succeed2.png)
 
 ## 3.安装相机gxipy库
  ----------
