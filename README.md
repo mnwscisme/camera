@@ -38,7 +38,7 @@ camera\
 大恒官网（https://www.daheng-imaging.com/details/index.aspx?nodeid=297）下载下图两个软件至jetson nano，并解压
 ```
 
-./download.png
+!./download.png
 
 
  ## 2.安装相机驱动
@@ -52,14 +52,17 @@ camera\
 安装完成则产生以下文件：
 ```
 
-./succeed1.png
+!(./succeed1.png)
 
-./succeed2.png
+!(./succeed2.png)
 
 ## 3.安装相机gxipy库
  ----------
 
-·步骤1：在Galaxy_Linux_Python_2.0.2008.9111文件夹中打开终端
+```
+
+步骤1：在Galaxy_Linux_Python_2.0.2008.9111文件夹中打开终端
+```
 
 ###安装依赖环境
 
