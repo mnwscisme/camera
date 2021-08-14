@@ -35,7 +35,8 @@ camera\
 
 
 
-(https://www.daheng-imaging.com/details/index.aspx?nodeid=297)下载下图两个软件至jetson nano，并解压
+(https://www.daheng-imaging.com/details/index.aspx?nodeid=297)
+下载下图两个软件至jetson nano，并解压
 
 
 ![](https://github.com/mnwscisme/camera/blob/main/download.png)
