@@ -65,7 +65,7 @@ camera\
 步骤1：在Galaxy_Linux_Python_2.0.2008.9111文件夹中打开终端
 ```
 
-###安装依赖环境
+### 安装依赖环境
 
 ```
 
@@ -79,7 +79,7 @@ sudo apt-get install python3.x-dev
 sudo apt-get install python3-setuptools
 ```
 
-###安装gxipy库
+### 安装gxipy库
 
 ```
 ·步骤5：
@@ -106,7 +106,7 @@ sudo pip3 install pillow
 ## 4.打开摄像头采集图像
 ----------
 
-###步骤1：导入必要库
+### 步骤1：导入必要库
 ```
 import gxipy as gx
 from PIL import Image
@@ -114,9 +114,9 @@ import numpy
 import cv2
 ```
 
-###步骤2：枚举设备。
+### 步骤2：枚举设备。
 
-####dev_info_list 是设备信息列表,列表的元素个数为枚举到的设备个数,列表元素是字典,其中包含设备索引(index)、ip 信息(ip)等设备信息
+#### dev_info_list 是设备信息列表,列表的元素个数为枚举到的设备个数,列表元素是字典,其中包含设备索引(index)、ip 信息(ip)等设备信息
 
 ```
 
@@ -129,7 +129,7 @@ if dev_num == 0:
 	sys.exit(1)
 ```
 
-###步骤3：打开设备
+### 步骤3：打开设备
 
 #### 获取设备基本信息列表
 
@@ -202,7 +202,7 @@ for i in range(num):
 	image.save(str(i)+"image.jpg")
 ```
 
-###步骤5：停止采集，关闭设备
+### 步骤5：停止采集，关闭设备
 
 ```
 cam.stream_off()
@@ -213,7 +213,7 @@ cam.close_device()
 ## 6.打开摄像头录制图像
 ----------
 
-###步骤1：导入必要库
+### 步骤1：导入必要库
 
 ```
 
@@ -226,7 +226,7 @@ import numpy
 import cv2
 ```
 
-###步骤2：打开设备
+### 步骤2：打开设备
 
 ```
 
@@ -253,14 +253,14 @@ str_sn = dev_info_list[0].get("sn")
 cam = device_manager.open_device_by_sn(str_sn)
 ```
 
-###步骤3：开始采集
+### 步骤3：开始采集
 
 ```
 	cam.stream_on()
 
 ```
 
-###步骤4：视频参数获取与设置
+### 步骤4：视频参数获取与设置
 
 // 获取帧率
 
@@ -277,7 +277,7 @@ fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('2.avi',fourcc,fps = 30,size)
 ```
 
-###步骤5：写入文件
+### 步骤5：写入文件
 
 ```
 
@@ -306,7 +306,7 @@ while (1):
 			break
 ```
 
-###步骤6：停止采集，关闭设备
+### 步骤6：停止采集，关闭设备
 
 ```
 
@@ -320,7 +320,7 @@ cv2.destroyWindow('origin')
 cam.stream_off()
 ```
 
-####释放
+#### 释放
 
 ```
 
@@ -336,7 +336,7 @@ cv2.destroyAllWindows()
 ## 7.补充说明
 ----------
 
-###以下函数应在图像采集开始前调用
+### 以下函数应在图像采集开始前调用
 
 #### set exposure 设置曝光时间
 
